@@ -24,7 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeng-lts/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng-lts/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css"
             ],
             "scripts": []
           },
@@ -87,7 +90,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeng-lts/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng-lts/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css"
             ],
             "scripts": []
           }
@@ -115,6 +121,46 @@
             "production": {
               "devServerTarget": "angular-component-library:serve:production"
             }
+          }
+        }
+      }
+    },
+    "pksratify": {
+      "projectType": "library",
+      "root": "projects/pksratify",
+      "sourceRoot": "projects/pksratify/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/pksratify/tsconfig.lib.json",
+            "project": "projects/pksratify/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/pksratify/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pksratify/src/test.ts",
+            "tsConfig": "projects/pksratify/tsconfig.spec.json",
+            "karmaConfig": "projects/pksratify/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/pksratify/tsconfig.lib.json",
+              "projects/pksratify/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
